@@ -9,65 +9,91 @@ class SignUpApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const charcoal = Color(0xFF3E3A36);
-    const taupe = Color(0xFF8B8178);
-    const warmBeige = Color(0xFFD8CEC4);
-    const softCream = Color(0xFFF7F4F0);
-    const lightBeige = Color(0xFFECE6DF);
+    // =====================================================
+    // WHEREISIT-INSPIRED COLOR PALETTE
+    // =====================================================
+    const darkBrown = Color(0xFF7A4314);
+    const deepBrown = Color(0xFF65360F);
+    const mediumBrown = Color(0xFF95612F);
+    const warmTan = Color(0xFFD8B77B);
+    const lightTan = Color(0xFFEED8A6);
+    const paleCream = Color(0xFFFFF4C7);
+    const softCream = Color(0xFFFFF9DF);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Sign Up',
       theme: ThemeData(
         useMaterial3: true,
+
         colorScheme: ColorScheme.fromSeed(
-          seedColor: taupe,
+          seedColor: darkBrown,
           brightness: Brightness.light,
         ),
-        scaffoldBackgroundColor: softCream,
+
+        scaffoldBackgroundColor: paleCream,
+
         appBarTheme: const AppBarTheme(
-          backgroundColor: charcoal,
-          foregroundColor: Colors.white,
+          backgroundColor: paleCream,
+          foregroundColor: darkBrown,
           centerTitle: true,
           elevation: 0,
         ),
+
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: softCream,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 16,
           ),
+
+          labelStyle: const TextStyle(color: mediumBrown),
+
+          hintStyle: TextStyle(color: mediumBrown.withValues(alpha: 0.65)),
+
+          prefixIconColor: darkBrown,
+          suffixIconColor: darkBrown,
+
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide.none,
+            borderSide: const BorderSide(color: warmTan),
           ),
+
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: const BorderSide(color: warmBeige),
+            borderSide: const BorderSide(color: warmTan, width: 1.2),
           ),
+
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: const BorderSide(color: taupe, width: 2),
+            borderSide: const BorderSide(color: darkBrown, width: 2),
           ),
+
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: const BorderSide(color: Colors.redAccent),
+            borderSide: const BorderSide(color: Color(0xFFB3261E)),
           ),
+
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: const BorderSide(color: Colors.redAccent, width: 2),
+            borderSide: const BorderSide(color: Color(0xFFB3261E), width: 2),
           ),
         ),
+
         cardTheme: CardThemeData(
-          color: Colors.white,
-          elevation: 4,
-          shadowColor: Colors.black12,
+          color: softCream,
+          elevation: 2,
+          shadowColor: darkBrown.withValues(alpha: 0.15),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
+            side: const BorderSide(color: lightTan),
           ),
         ),
+
+        dividerTheme: const DividerThemeData(color: lightTan, thickness: 1),
       ),
+
       home: const SignUpScreen(),
     );
   }
@@ -95,12 +121,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final String fullName = 'Cristina Villarosa';
 
-  static const Color charcoal = Color(0xFF3E3A36);
-  static const Color taupe = Color(0xFF8B8178);
-  static const Color warmBeige = Color(0xFFD8CEC4);
-  static const Color softCream = Color(0xFFF7F4F0);
-  static const Color lightBeige = Color(0xFFECE6DF);
-  static const Color mutedBrown = Color(0xFF665D55);
+  // =====================================================
+  // WHEREISIT-INSPIRED COLOR PALETTE
+  // =====================================================
+
+  static const Color darkBrown = Color(0xFF7A4314);
+  static const Color deepBrown = Color(0xFF65360F);
+  static const Color mediumBrown = Color(0xFF95612F);
+  static const Color warmTan = Color(0xFFD8B77B);
+  static const Color lightTan = Color(0xFFEED8A6);
+  static const Color paleCream = Color(0xFFFFF4C7);
+  static const Color softCream = Color(0xFFFFF9DF);
 
   @override
   void dispose() {
@@ -138,7 +169,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Please agree to the Terms and Conditions.'),
-            backgroundColor: mutedBrown,
+            backgroundColor: darkBrown,
           ),
         );
 
@@ -148,7 +179,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Account created successfully!'),
-          backgroundColor: charcoal,
+          backgroundColor: darkBrown,
         ),
       );
     }
@@ -162,7 +193,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: AppBar(
         title: const Text(
           'Create Account',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: darkBrown),
         ),
       ),
 
@@ -189,14 +220,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Container(
                           width: 85,
                           height: 85,
+
                           decoration: const BoxDecoration(
-                            color: lightBeige,
+                            color: lightTan,
                             shape: BoxShape.circle,
                           ),
+
                           child: const Icon(
                             Icons.person_add_alt_1,
                             size: 44,
-                            color: charcoal,
+                            color: darkBrown,
                           ),
                         ),
 
@@ -208,7 +241,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: charcoal,
+                            color: darkBrown,
                           ),
                         ),
 
@@ -217,7 +250,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Text(
                           'Fill in the information below to sign up.',
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 14, color: taupe),
+                          style: TextStyle(fontSize: 14, color: mediumBrown),
                         ),
 
                         const SizedBox(height: 28),
@@ -315,6 +348,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           decoration: InputDecoration(
                             labelText: 'Password',
                             hintText: 'Enter your password',
+
                             prefixIcon: const Icon(Icons.lock_outline),
 
                             suffixIcon: IconButton(
@@ -358,6 +392,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           decoration: InputDecoration(
                             labelText: 'Confirm Password',
                             hintText: 'Re-enter your password',
+
                             prefixIcon: const Icon(Icons.lock_reset),
 
                             suffixIcon: IconButton(
@@ -397,7 +432,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Checkbox(
                               value: _agreeTerms,
-                              activeColor: charcoal,
+                              activeColor: darkBrown,
+                              checkColor: Colors.white,
 
                               onChanged: (value) {
                                 setState(() {
@@ -411,7 +447,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 'I agree to the Terms and Conditions.',
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: mutedBrown,
+                                  color: deepBrown,
                                 ),
                               ),
                             ),
@@ -425,7 +461,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         // =====================================================
                         SizedBox(
                           width: double.infinity,
-                          height: 52,
+                          height: 54,
 
                           child: ElevatedButton.icon(
                             onPressed: signUp,
@@ -441,8 +477,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
 
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: charcoal,
+                              backgroundColor: darkBrown,
                               foregroundColor: Colors.white,
+                              elevation: 0,
 
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(14),
@@ -465,7 +502,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           style: TextStyle(
                             fontSize: 19,
                             fontWeight: FontWeight.bold,
-                            color: charcoal,
+                            color: darkBrown,
                           ),
                         ),
 
@@ -474,7 +511,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Text(
                           'Tap, double tap, or long press the button below.',
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: taupe, fontSize: 13),
+                          style: TextStyle(color: mediumBrown, fontSize: 13),
                         ),
 
                         const SizedBox(height: 16),
@@ -494,7 +531,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: IgnorePointer(
                             child: SizedBox(
                               width: double.infinity,
-                              height: 52,
+                              height: 54,
 
                               child: ElevatedButton.icon(
                                 onPressed: () {},
@@ -510,8 +547,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ),
 
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: lightBeige,
-                                  foregroundColor: charcoal,
+                                  backgroundColor: darkBrown,
+                                  foregroundColor: Colors.white,
+                                  elevation: 0,
 
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(14),
@@ -532,9 +570,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           padding: const EdgeInsets.all(16),
 
                           decoration: BoxDecoration(
-                            color: softCream,
+                            color: paleCream,
                             borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: warmBeige),
+
+                            border: Border.all(color: lightTan),
                           ),
 
                           child: const Column(
@@ -570,7 +609,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Text(
                           'ITP107 • Mobile Application Development',
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 12, color: taupe),
+                          style: TextStyle(fontSize: 12, color: mediumBrown),
                         ),
                       ],
                     ),
@@ -603,6 +642,10 @@ class GestureInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const darkBrown = Color(0xFF7A4314);
+    const mediumBrown = Color(0xFF95612F);
+    const lightTan = Color(0xFFEED8A6);
+
     return Row(
       children: [
         Container(
@@ -610,11 +653,11 @@ class GestureInfo extends StatelessWidget {
           height: 42,
 
           decoration: BoxDecoration(
-            color: const Color(0xFFECE6DF),
+            color: lightTan,
             borderRadius: BorderRadius.circular(10),
           ),
 
-          child: Icon(icon, size: 21, color: const Color(0xFF3E3A36)),
+          child: Icon(icon, size: 21, color: darkBrown),
         ),
 
         const SizedBox(width: 12),
@@ -628,7 +671,7 @@ class GestureInfo extends StatelessWidget {
                 title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF3E3A36),
+                  color: darkBrown,
                 ),
               ),
 
@@ -636,7 +679,7 @@ class GestureInfo extends StatelessWidget {
 
               Text(
                 description,
-                style: const TextStyle(fontSize: 12, color: Color(0xFF8B8178)),
+                style: const TextStyle(fontSize: 12, color: mediumBrown),
               ),
             ],
           ),
